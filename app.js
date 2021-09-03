@@ -5,7 +5,7 @@ const searchTemperature = () => {
     const cityField = document.getElementById('city');
     const cityText = cityField.value;
     cityField.value = "";
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityText}&appid=${API_KEY}&units=metric `;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityText}&appid=${API_KEY}&units=metric `;
 
     fetch(url)
         .then(res => res.json())
@@ -22,7 +22,7 @@ const displayTemperature = (data) => {
     const weather = document.getElementById('weather');
     weather.innerText = (data.weather[0].main);
 
-    const url = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+    const url = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
     const weatherIcon = document.getElementById('icon');
     weatherIcon.setAttribute('src', url);
     console.log(data)
