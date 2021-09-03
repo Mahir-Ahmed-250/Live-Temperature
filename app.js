@@ -29,7 +29,7 @@ const displayTemperature = (data) => {
 }
 const searchTemperature1 = (dhaka) => {
 
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${dhaka}&appid=${API_KEY}&units=metric `;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${dhaka}&appid=${API_KEY}&units=metric `;
 
     fetch(url)
         .then(res => res.json())
@@ -43,7 +43,7 @@ const displayTemperature1 = (data) => {
     temperature.innerText = (data.main.temp);
     const weather = document.getElementById('weather');
     weather.innerText = (data.weather[0].main)
-    const url = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+    const url = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
     const weatherIcon = document.getElementById('icon');
     weatherIcon.setAttribute('src', url);
 
