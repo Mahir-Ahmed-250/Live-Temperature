@@ -1,15 +1,24 @@
 const API_KEY = `fd27e4ffbc2e9ca4176abebc675343c7`;
 
 
+
+
 const searchTemperature = () => {
     const cityField = document.getElementById('city');
     const cityText = cityField.value;
-    cityField.value = "";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityText}&appid=${API_KEY}&units=metric `;
+    if (cityText === '') {
+        alert('Please Input a City Name');
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displayTemperature(data))
+    }
+    else {
+        cityField.value = "";
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityText}&appid=${API_KEY}&units=metric `;
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displayTemperature(data))
+    }
 }
 
 const displayTemperature = (data) => {
